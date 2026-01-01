@@ -101,6 +101,54 @@
     </div>
 </section>
 
-
+<section id="testimoni" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-slate-900">Kata Anak Rantau</h2>
+            <p class="text-slate-500 mt-2">Mereka yang sudah menemukan hunian nyaman.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full object-cover">
+                    <div>
+                        <h4 class="font-bold text-slate-900">Sarah Putri</h4>
+                        <p class="text-xs text-slate-500">Mahasiswi UNPAD</p>
+                    </div>
+                </div>
+                <div class="text-yellow-400 text-sm mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 text-sm">"Pas sampai kosannya persis banget sama di foto. Adminnya gercep!"</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-4">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover">
+                    <div>
+                        <h4 class="font-bold text-slate-900">Dimas Anggara</h4>
+                        <p class="text-xs text-slate-500">Karyawan</p>
+                    </div>
+                </div>
+                <div class="text-yellow-400 text-sm mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="text-slate-600 text-sm">"Fitur filternya ngebantu banget buat nyari kos yang ada parkir mobilnya."</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-white border border-slate-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full object-cover">
+                    <div>
+                        <h4 class="font-bold text-slate-900">Rina Wati</h4>
+                        <p class="text-xs text-slate-500">Mahasiswi ITB</p>
+                    </div>
+                </div>
+                <div class="text-yellow-400 text-sm mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 text-sm">"SobatKos penyelamat banget pas ospek dadakan butuh kosan harian."</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 @endsection
