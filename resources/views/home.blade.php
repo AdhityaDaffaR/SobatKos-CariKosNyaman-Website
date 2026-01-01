@@ -101,6 +101,39 @@
     </div>
 </section>
 
+<section id="keunggulan" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-slate-900">Kenapa SobatKos?</h2>
+            <p class="text-slate-500 mt-2">Beda dari yang lain, kami mengerti kebutuhanmu.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
+                <div class="w-16 h-16 mx-auto bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-tag"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Harga Jujur</h3>
+                <p class="text-slate-500 text-sm">Tidak ada biaya admin tersembunyi. Bayar sesuai harga tertera.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
+                <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Terverifikasi</h3>
+                <p class="text-slate-500 text-sm">Semua kos sudah disurvey langsung oleh tim kami. Anti zonk.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition duration-300 border border-transparent hover:border-gray-100 text-center group">
+                <div class="w-16 h-16 mx-auto bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Booking Cepat</h3>
+                <p class="text-slate-500 text-sm">Proses booking sat-set, pembayaran otomatis, langsung konfirmasi.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="testimoni" class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
