@@ -117,8 +117,39 @@ class BookingController extends Controller
         return view('bookings.success', compact('booking'));
     }
 
+    // 8. Riwayat Booking
+    public function history()
+    {
+        $bookings = DB::table('bookings')
+            ->join('kosts', 'bookings.kost_id', '=', 'kosts.id')
+            ->select('bookings.*', 'kosts.nama_kost', 'kosts.gambar_url')
+            ->orderByDesc('bookings.created_at')
+            ->get();
 
-    // 8. Halaman Katalog / Cari Kost
+        return view('bookings.history', compact('bookings'));
+    }
+
+    // 9. Hapus Riwayat Booking
+    public function destroy($id)
+    {
+        $booking = DB::table('bookings')->where('id', $id)->first();
+
+        if ($booking) {
+            // Hapus file bukti bayar dari penyimpanan jika ada
+            if ($booking->bukti_bayar && file_exists(public_path($booking->bukti_bayar))) {
+                unlink(public_path($booking->bukti_bayar));
+            }
+
+            // Hapus data dari database
+            DB::table('bookings')->where('id', $id)->delete();
+
+            return redirect()->route('bookings.history')->with('success', 'Riwayat booking berhasil dihapus.');
+        }
+
+        return back()->with('error', 'Data tidak ditemukan.');
+    }
+
+    // 10. Halaman Katalog / Cari Kost
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
