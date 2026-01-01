@@ -20,10 +20,68 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        
+        /* --- CUSTOM SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 20px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb {
+            background-color: #0f172a; 
+            border-radius: 20px;
+            border: 3px solid #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb:hover { background-color: #1d4ed8; }
+
+        /* --- GOLDEN CUSTOM CURSOR --- */
+        @media (min-width: 1024px) {
+            *, *::before, *::after { cursor: none !important; }
+
+            .cursor-hidden {
+                opacity: 0 !important;
+                visibility: hidden !important;
+                animation: none !important;
+                transition: opacity 0.2s ease;
+            }
+
+            .cursor-dot {
+                position: fixed; top: 0; left: 0; width: 16px; height: 16px;
+                background-color: #f59e0b; 
+                border-radius: 50%; pointer-events: none; z-index: 9999;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 15px rgba(245, 158, 11, 0.6); 
+                transition: opacity 0.2s;
+            }
+
+            .cursor-outline {
+                position: fixed; top: 0; left: 0; width: 32px; height: 32px;
+                border: 2px solid #fbbf24; border-radius: 50%; pointer-events: none;
+                z-index: 9998; transform: translate(-50%, -50%); opacity: 0.8;
+                transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.2s;
+            }
+
+            .cursor-ripple {
+                position: fixed; top: 0; left: 0; width: 32px; height: 32px;
+                border: 1px solid #fcd34d; border-radius: 50%; pointer-events: none;
+                z-index: 9997; transform: translate(-50%, -50%);
+                animation: pulse-animation 1.5s infinite ease-out;
+                transition: opacity 0.2s;
+            }
+
+            @keyframes pulse-animation {
+                0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+                100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+            }
+
+            body.hovering .cursor-dot { transform: translate(-50%, -50%) scale(1.2); background-color: #d97706; }
+            body.hovering .cursor-outline { width: 50px; height: 50px; background-color: rgba(245, 158, 11, 0.15); border-color: #d97706; }
+            body.hovering .cursor-ripple { border-color: #d97706; }
+        }
     </style>
 </head>
+
 <body class="bg-slate-50 text-gray-800 antialiased">
+
+    <div class="cursor-dot hidden lg:block"></div>
+    <div class="cursor-outline hidden lg:block"></div>
+    <div class="cursor-ripple hidden lg:block"></div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav h-20 flex items-center transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -113,6 +171,36 @@
 </footer>
 
     <script>
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const cursorRipple = document.querySelector('.cursor-ripple');
+        
+        if (window.matchMedia("(min-width: 1024px)").matches) {
+            window.addEventListener('mousemove', function(e) {
+                const posX = e.clientX; const posY = e.clientY;
+                cursorDot.style.left = `${posX}px`; cursorDot.style.top = `${posY}px`;
+                cursorRipple.style.left = `${posX}px`; cursorRipple.style.top = `${posY}px`;
+                cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+            });
+            const interactiveElements = document.querySelectorAll('a, button, input, textarea');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+            const nativeAreas = document.querySelectorAll('.native-cursor-area');
+            nativeAreas.forEach(area => {
+                area.addEventListener('mouseenter', () => {
+                    cursorDot.classList.add('cursor-hidden');
+                    cursorOutline.classList.add('cursor-hidden');
+                    cursorRipple.classList.add('cursor-hidden');
+                });
+                area.addEventListener('mouseleave', () => {
+                    cursorDot.classList.remove('cursor-hidden');
+                    cursorOutline.classList.remove('cursor-hidden');
+                    cursorRipple.classList.remove('cursor-hidden');
+                });
+            });
+        }
 
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
